@@ -1,0 +1,10 @@
+speechtotext\statisticsfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\StatisticsFunctions\StatisticsFunctions.c
+speechtotext\statisticsfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\StatisticsFunctions\arm_entropy_f32.c
+speechtotext\statisticsfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+speechtotext\statisticsfunctions.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+speechtotext\statisticsfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+speechtotext\statisticsfunctions.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+speechtotext\statisticsfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+speechtotext\statisticsfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+speechtotext\statisticsfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+speechtotext\statisticsfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h

@@ -1,0 +1,10 @@
+speechtotext\filteringfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\FilteringFunctions\FilteringFunctions.c
+speechtotext\filteringfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\FilteringFunctions\arm_biquad_cascade_df1_32x64_init_q31.c
+speechtotext\filteringfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+speechtotext\filteringfunctions.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+speechtotext\filteringfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+speechtotext\filteringfunctions.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+speechtotext\filteringfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+speechtotext\filteringfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+speechtotext\filteringfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+speechtotext\filteringfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h

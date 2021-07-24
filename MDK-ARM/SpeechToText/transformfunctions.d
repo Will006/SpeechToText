@@ -1,0 +1,10 @@
+speechtotext\transformfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\TransformFunctions\TransformFunctions.c
+speechtotext\transformfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\TransformFunctions\arm_bitreversal.c
+speechtotext\transformfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+speechtotext\transformfunctions.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+speechtotext\transformfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+speechtotext\transformfunctions.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+speechtotext\transformfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+speechtotext\transformfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+speechtotext\transformfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+speechtotext\transformfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h

@@ -1,0 +1,10 @@
+speechtotext\basicmathfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\BasicMathFunctions\BasicMathFunctions.c
+speechtotext\basicmathfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\BasicMathFunctions\arm_abs_f32.c
+speechtotext\basicmathfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+speechtotext\basicmathfunctions.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+speechtotext\basicmathfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+speechtotext\basicmathfunctions.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+speechtotext\basicmathfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+speechtotext\basicmathfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+speechtotext\basicmathfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+speechtotext\basicmathfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h

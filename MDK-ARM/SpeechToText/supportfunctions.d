@@ -1,0 +1,10 @@
+speechtotext\supportfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\SupportFunctions\SupportFunctions.c
+speechtotext\supportfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\SupportFunctions\arm_barycenter_f32.c
+speechtotext\supportfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+speechtotext\supportfunctions.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+speechtotext\supportfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+speechtotext\supportfunctions.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+speechtotext\supportfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+speechtotext\supportfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+speechtotext\supportfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+speechtotext\supportfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h

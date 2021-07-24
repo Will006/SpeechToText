@@ -1,0 +1,10 @@
+speechtotext\commontables.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\CommonTables\CommonTables.c
+speechtotext\commontables.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\CommonTables\arm_common_tables.c
+speechtotext\commontables.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+speechtotext\commontables.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+speechtotext\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+speechtotext\commontables.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+speechtotext\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+speechtotext\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+speechtotext\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+speechtotext\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h

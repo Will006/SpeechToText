@@ -1,0 +1,10 @@
+speechtotext\controllerfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\ControllerFunctions\ControllerFunctions.c
+speechtotext\controllerfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\ControllerFunctions\arm_pid_init_f32.c
+speechtotext\controllerfunctions.o: C:\Users\wpickering\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+speechtotext\controllerfunctions.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+speechtotext\controllerfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+speechtotext\controllerfunctions.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+speechtotext\controllerfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+speechtotext\controllerfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+speechtotext\controllerfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+speechtotext\controllerfunctions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
