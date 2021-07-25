@@ -632,6 +632,11 @@
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_msp.c</FilePath>
             </File>
+            <File>
+              <FileName>FormattedOutput.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\FormattedOutput.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

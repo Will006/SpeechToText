@@ -28,6 +28,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "FormattedOutput.h"
+
+
 #define DOUBLE_BUFFER_SIZE 2048
 #define BUFFER_SIZE 1024
 #define OUTPUT_BUFFER_SIZE 512
@@ -69,6 +72,22 @@ void SystemClock_Config(void);
 	q15_t analogBuffer[DOUBLE_BUFFER_SIZE];
 	q15_t fftOutput[BUFFER_SIZE];
 	uint16_t SMALLanalogBuffer[1];
+	uint32_t hashTransmit;
+	uint8_t hashBuffer[32];
+	
+uint32_t FreqHash(q15_t* fftOut)
+{
+	uint32_t hashOut=0;
+	for(int i=1; i<BUFFER_SIZE; ++i)
+	{
+		if(fftOut[i]>fftOut[i-1] && fftOut[i]>fftOut[i+1])
+		{
+			hashOut |= 1<<i;
+		}
+	}
+	return hashOut;
+}
+
 	
 	volatile uint8_t txDoneFlag = 1;
 uint8_t bootHeader[]="Booted";
@@ -90,27 +109,47 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
   arm_rfft_q15(&varInstRfftQ15, analogBuffer, fftOutput);
 	//transmit the fft
 	
-	/*
-	tempTimeMissed=0;
-	while(txDoneFlag == 0)
-	{
-		tempTimeMissed++;
-		HAL_Delay(10);
-	}
-	timeMissed = tempTimeMissed;
-	txDoneFlag = 0;
-	*/
 	
-	HAL_UART_Transmit(&huart2,setSpacer,sizeof(setSpacer),1000);
+	//COMPUTE HASH
+	hashTransmit = FreqHash(fftOutput);
+	//TRANSMIT HASH
+	
+	NumToStr(hashTransmit,hashBuffer,32);
+	HAL_UART_Transmit(&huart2,hashBuffer,digitCount_uint32_t(hashTransmit),1000);
 	txDoneFlag = 0;
-	HAL_UART_Transmit_DMA(&huart2,(uint8_t *)fftOutput,sizeof(fftOutput));
+	//HAL_UART_Transmit_DMA(&huart2,(uint8_t *)fftOutput,sizeof(fftOutput));
+	
+	//START SECOND-HALF DMA
+	HAL_ADC_Start_DMA(&hadc1,(uint32_t*)analogBuffer+BUFFER_SIZE,BUFFER_SIZE);
+	
   //status=arm_rfft_32_fast_init_f32(&varInstCfftF32);
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_10, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_10, GPIO_PIN_SET);
 }
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
   /* Process the data through the CFFT/CIFFT module */
+	
+	
+	
+	  /* Process the data through the CFFT/CIFFT module */
+	//perform the fft
   arm_rfft_q15(&varInstRfftQ15, analogBuffer+BUFFER_SIZE, fftOutput);
+	//transmit the fft
+	
+	
+	//COMPUTE HASH
+	hashTransmit = FreqHash(fftOutput);
+	//TRANSMIT HASH
+	
+	NumToStr(hashTransmit,hashBuffer,32);
+	HAL_UART_Transmit(&huart2,hashBuffer,digitCount_uint32_t(hashTransmit),1000);
+	txDoneFlag = 0;
+	//HAL_UART_Transmit_DMA(&huart2,(uint8_t *)fftOutput,sizeof(fftOutput));
+	
+	//START SECOND-HALF DMA
+	HAL_ADC_Start_DMA(&hadc1,(uint32_t*)analogBuffer,BUFFER_SIZE);
+	
+	
 	
 	/*
 	tempTimeMissed=0;
@@ -123,10 +162,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 	txDoneFlag = 0;
 	*/
 	
-	
-	HAL_UART_Transmit(&huart2,setSpacer,sizeof(setSpacer),1000);
-	txDoneFlag = 0;
-	HAL_UART_Transmit_DMA(&huart2,(uint8_t *)fftOutput,sizeof(fftOutput));
   //status=arm_rfft_32_fast_init_f32(&varInstCfftF32);
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_10, GPIO_PIN_RESET);
 }
@@ -174,7 +209,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	HAL_ADC_Start_DMA(&hadc1,(uint32_t*)analogBuffer,DOUBLE_BUFFER_SIZE);
   while (1)
   {
     /* USER CODE END WHILE */

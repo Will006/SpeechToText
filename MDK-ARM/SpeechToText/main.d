@@ -41,3 +41,4 @@ speechtotext\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 speechtotext\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 speechtotext\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
 speechtotext\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+speechtotext\main.o: ../Core/Inc/FormattedOutput.h

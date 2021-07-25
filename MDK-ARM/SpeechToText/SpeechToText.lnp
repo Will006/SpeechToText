@@ -7,6 +7,7 @@
 "speechtotext\usart.o"
 "speechtotext\stm32f4xx_it.o"
 "speechtotext\stm32f4xx_hal_msp.o"
+"speechtotext\formattedoutput.o"
 "speechtotext\stm32f4xx_hal_adc.o"
 "speechtotext\stm32f4xx_hal_adc_ex.o"
 "speechtotext\stm32f4xx_ll_adc.o"
