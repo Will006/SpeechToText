@@ -30,10 +30,11 @@
 /* USER CODE BEGIN Includes */
 #include "FormattedOutput.h"
 
-
+//If the input buffer is of length N, the output buffer must have length 2*N.
+//The input buffer is modified by this function.
 #define DOUBLE_BUFFER_SIZE 2048
 #define BUFFER_SIZE 1024
-#define OUTPUT_BUFFER_SIZE 512
+#define OUTPUT_BUFFER_SIZE 2048
 #define SAMPLE_RATE 93750	//11.25MHz APB2
 //1.44 = 12KHz
 //11.25/
@@ -70,19 +71,30 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 	q15_t analogBuffer[DOUBLE_BUFFER_SIZE];
-	q15_t fftOutput[BUFFER_SIZE];
+	q15_t fftOutput[OUTPUT_BUFFER_SIZE];
 	uint16_t SMALLanalogBuffer[1];
 	uint32_t hashTransmit;
 	uint8_t hashBuffer[32];
 	
+	
+void PrintArray_q15_t(q15_t* arrayIn, uint32_t arraySizeIn)
+{
+	uint8_t numberBuffer[5];
+	for(int i=0; i<arraySizeIn; i++)
+	{
+		NumToStr_int16(arrayIn[i], numberBuffer, 5);
+		HAL_UART_Transmit(&huart2,numberBuffer,digitCount_int16_t(arrayIn[i]),1000);
+	}
+}
+	
 uint32_t FreqHash(q15_t* fftOut)
 {
 	uint32_t hashOut=0;
-	for(int i=1; i<BUFFER_SIZE; ++i)
+	for(int i=1; i<OUTPUT_BUFFER_SIZE; ++i)
 	{
 		if(fftOut[i]>fftOut[i-1] && fftOut[i]>fftOut[i+1])
 		{
-			hashOut |= 1<<i;
+			hashOut |= 1<<(i/65);
 		}
 	}
 	return hashOut;
@@ -109,12 +121,11 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
   arm_rfft_q15(&varInstRfftQ15, analogBuffer, fftOutput);
 	//transmit the fft
 	
-	
 	//COMPUTE HASH
 	hashTransmit = FreqHash(fftOutput);
 	//TRANSMIT HASH
 	
-	NumToStr(hashTransmit,hashBuffer,32);
+	NumToStr_uint32(hashTransmit,hashBuffer,32);
 	HAL_UART_Transmit(&huart2,hashBuffer,digitCount_uint32_t(hashTransmit),1000);
 	txDoneFlag = 0;
 	//HAL_UART_Transmit_DMA(&huart2,(uint8_t *)fftOutput,sizeof(fftOutput));
@@ -127,11 +138,7 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
 }
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-  /* Process the data through the CFFT/CIFFT module */
-	
-	
-	
-	  /* Process the data through the CFFT/CIFFT module */
+
 	//perform the fft
   arm_rfft_q15(&varInstRfftQ15, analogBuffer+BUFFER_SIZE, fftOutput);
 	//transmit the fft
@@ -141,15 +148,13 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 	hashTransmit = FreqHash(fftOutput);
 	//TRANSMIT HASH
 	
-	NumToStr(hashTransmit,hashBuffer,32);
+	NumToStr_uint32(hashTransmit,hashBuffer,32);
 	HAL_UART_Transmit(&huart2,hashBuffer,digitCount_uint32_t(hashTransmit),1000);
 	txDoneFlag = 0;
 	//HAL_UART_Transmit_DMA(&huart2,(uint8_t *)fftOutput,sizeof(fftOutput));
 	
 	//START SECOND-HALF DMA
 	HAL_ADC_Start_DMA(&hadc1,(uint32_t*)analogBuffer,BUFFER_SIZE);
-	
-	
 	
 	/*
 	tempTimeMissed=0;
@@ -203,7 +208,9 @@ int main(void)
   MX_ADC1_Init();
   MX_USART2_UART_Init();
 	HAL_UART_Transmit(&huart2, bootHeader, sizeof(bootHeader),1000);
-  status = arm_rfft_init_q15(&varInstRfftQ15,OUTPUT_BUFFER_SIZE,0,1);
+  status = arm_rfft_init_q15(&varInstRfftQ15,BUFFER_SIZE,0,1);
+	
+	HAL_ADC_Start_DMA(&hadc1,(uint32_t*)analogBuffer,BUFFER_SIZE);
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
